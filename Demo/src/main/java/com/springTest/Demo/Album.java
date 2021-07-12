@@ -1,7 +1,12 @@
 package com.springTest.Demo;
 
-public class Album {
+import javax.persistence.*;
 
+@Entity
+public class Album {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    long id;
     String title;
     String artist;
     String songCount;
@@ -14,6 +19,14 @@ public class Album {
         this.songCount = songCount;
         this.length = length;
         this.imageUrl = imageUrl;
+    }
+
+    public Album() {
+
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getTitle() {
@@ -34,5 +47,25 @@ public class Album {
 
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setArtist(String artist) {
+        this.artist = artist;
+    }
+
+    public void setSongCount(String songCount) {
+        this.songCount = songCount;
+    }
+
+    public void setLength(String length) {
+        this.length = length;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
