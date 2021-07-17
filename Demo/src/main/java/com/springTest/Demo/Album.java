@@ -1,8 +1,14 @@
 package com.springTest.Demo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
+@JsonIgnoreProperties(value = { "song" })
 public class Album {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,6 +18,8 @@ public class Album {
     String songCount;
     String length;
     String imageUrl;
+    @OneToMany
+    List<Song> song;
 
     public Album(String title, String artist, String songCount, String length, String imageUrl) {
         this.title = title;
@@ -47,6 +55,10 @@ public class Album {
 
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public void setTitle(String title) {
