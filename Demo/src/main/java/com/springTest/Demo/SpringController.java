@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class SpringController {
-    @GetMapping("/")
-    public String host() {
-        return "landing";
-    }
+//    @GetMapping("/")
+//    public String host() {
+//        return "landing";
+//    }
 
     @GetMapping("/hello")
     public String greeting() {
